@@ -13,33 +13,28 @@ export class ConnexionComponent implements OnInit {
     private authService: AuthService
   ) { }
   clickMessage = '';
-  value = '';
-  //pseudos = ['test', 'test1'];
 
   ngOnInit() {
   }
 
-  onClickMe() {
-    this.clickMessage = 'coucou!';
-  }
+ /*powers = ['Really Smart', 'Super Flexible',
+            'Super Hot', 'Weather Changer'];
 
-  update(value: string) { this.value = value; }
-
-
-
-  Pseudos = ['test', 'test1'];
-
-  model = new Personne(18, 'Dr IQ', this.Pseudos[0], 'Chuck Overstreet');
+  //model = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck Overstreet');
+  model = this.authService.auth("login");
 
   submitted = false;
 
-  onSubmit() { this.submitted = true; 
-    this.authService.auth("login");
-  }
+  onSubmit() { this.submitted = true; }
 
   newHero() {
     this.model = new Hero(42, '', '');
+  }*/
+  onSubmit() {
+    this.authService.auth("login");
   }
+
+  
 
   
 

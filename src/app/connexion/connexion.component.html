@@ -1,16 +1,29 @@
-<form class="col-5">
-  <div class="form-group">
-    <label for="pseudo">Pseudo</label>
-    <input #box
-      (keyup.enter)="update(box.value)"
-      (blur)="update(box.value)" type="text" class="form-control" id="InputPseudo" aria-describedby="pseudoHelp" placeholder="Enter pseudo">
-     <p>{{value}}</p>
-     <ul>
-    <li *ngFor="let hero of heroes">
-      {{ hero }}
-    </li>
-  </ul>
+<div class="container">
+  <div [hidden]="submitted">
+    <form (ngSubmit)="onSubmit()" #connexionForm="ngForm" class="col-5">
+      <div class="form-group">
+        <label for="login">Login</label>
+        <input type="text" class="form-control" id="login"
+               required
+               [(ngModel)]="model.login" name="login"
+               #login="ngModel" placeholder="Enter login">
+        <div [hidden]="login.valid || login.pristine"
+             class="alert alert-danger">
+          login is required
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
+      <button type="button" class="btn btn-default" (click)="newHero(); heroForm.reset()">New Hero</button>
+    </form>
   </div>
-  <button type="submit" class="btn btn-primary" (click)="onClickMe()">Submit</button>
-  {{clickMessage}}
-</form>
+
+  <div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-xs-3">Login</div>
+      <div class="col-xs-9">{{ model.login }}</div>
+    </div>
+    <br>
+    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+  </div>
+</div>
