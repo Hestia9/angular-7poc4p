@@ -1,1 +1,16 @@
-<button type="button" class="btn btn-primary" (click)="onClickMe()">Click me!</button>
+<form class="col-5">
+  <div class="form-group">
+    <label for="pseudo">Pseudo</label>
+    <input #box
+      (keyup.enter)="update(box.value)"
+      (blur)="update(box.value)" type="text" class="form-control" id="InputPseudo" aria-describedby="pseudoHelp" placeholder="Enter pseudo">
+     <p>{{value}}</p>
+     <ul>
+    <li *ngFor="let hero of heroes">
+      {{ hero }}
+    </li>
+  </ul>
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="onClickMe()">Submit</button>
+  {{clickMessage}}
+</form>
