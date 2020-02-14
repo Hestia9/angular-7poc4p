@@ -13,7 +13,7 @@ export class ConnexionComponent implements OnInit {
 
   constructor(
     private authService: AuthService, 
-    //private formBuilder: FormBuilder,
+    private formBuilder: FormBuilder,
   ) { }
   clickMessage = '';
 
