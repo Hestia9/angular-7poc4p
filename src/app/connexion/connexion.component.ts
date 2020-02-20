@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../@shared/auth.service';
-
-import { FormBuilder } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { AuthService, User } from '../@shared/auth.service';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'connexion',
@@ -9,20 +9,32 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./connexion.component.css']
 })
 export class ConnexionComponent implements OnInit {
-   
+  formConnexion: FormGroup;
+  user: User;
+  //listeUser: ListeUser;
 
   constructor(
-    private authService: AuthService, 
     private formBuilder: FormBuilder,
+    private router: Router,
+    private authService: AuthService
+    
+    
   ) { }
-  clickMessage = '';
-
-  ngOnInit() {
+  ngOnInit(){
+    this.initForm;
   }
 
+  initForm(){
+    this.formConnexion = this.formBuilder.group({
+      login: '',
+    });
+  }
 
-  
+  submitConnexionForm(){
+    const formValue = this.formConnexion.value;
+    console.log(formValue['login']);
+    this.user = new User(formValue['login']);
+    this.authService.auth(this.user);
 
-  
-
+  }
 }

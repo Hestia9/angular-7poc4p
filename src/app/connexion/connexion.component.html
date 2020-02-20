@@ -1,10 +1,9 @@
 <div class="container">
-  <form>
-    <div class="form-group">
+  <form [formGroup]="formConnexion">
       <label for="login">Login</label>
-      <input type="text" class="form-control" id="login" aria-describedby="loginHelp" placeholder="Enter login">
-    </div>
-    <a routerLink="boite"> <button type="submit" class="btn btn-primary">Submit</button> </a>
+      <input type="text" class="form-control" id="login" aria-describedby="loginHelp" placeholder="Enter login" formControlName="login">
+    
+    <a routerLink="boite"> <button type="submit" (click)="submitConnexionForm()" class="btn btn-primary">Submit</button> </a> 
     
   </form>
 </div>
