@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 export class ConnexionComponent implements OnInit {
   formConnexion: FormGroup;
   user: User;
-  //listeUser: ListeUser;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,18 +24,8 @@ export class ConnexionComponent implements OnInit {
       login: ''
     });
   }
-/*
-  initForm(){
-    this.formConnexion = this.formBuilder.group({
-      login: '',
-    });
-  }*/
 
   submitConnexionForm(){
-    /*const formValue = this.formConnexion.value;
-    console.log(formValue['login']);
-    this.user = new User(formValue['login']);
-    this.authService.auth(this.user);*/
     this.authService.auth(this.formConnexion.get('login').value);
     if((this.formConnexion.get('login').value) != ""){
       this.router.navigate(['/boite']);
