@@ -38,6 +38,8 @@ export class ConnexionComponent implements OnInit {
     this.user = new User(formValue['login']);
     this.authService.auth(this.user);*/
     this.authService.auth(this.formConnexion.get('login').value);
-    this.router.navigate(['/boite']);
+    if((this.formConnexion.get('login').value) != ""){
+      this.router.navigate(['/boite']);
+    }    
   }
 }
