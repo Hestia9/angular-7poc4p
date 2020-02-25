@@ -1,10 +1,2 @@
 <h1>Bonjour {{ user?.login }}</h1>
 
-<div class="container">
-  <form [formGroup]="formIdee">
-      <input type="text" class="form-control" id="login" aria-describedby="loginHelp" placeholder="Enter login" formControlName="login">
-    
-    <button type="submit" (click)="submitConnexionForm()" class="btn btn-primary">Submit</button>
-    
-  </form>
-</div>
