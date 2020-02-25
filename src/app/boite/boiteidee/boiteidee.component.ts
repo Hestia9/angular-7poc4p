@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService, User } from '../../@shared/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-boiteidee',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoiteideeComponent implements OnInit {
 
-  constructor() { }
+  user: User
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.user = this.authService.get();
   }
 
 }
