@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ConnexionComponent } from './connexion/connexion.component';
@@ -15,7 +15,7 @@ const rout : Routes = [
 ]
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, RouterModule.forRoot(rout), FormsModule ],
+  imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(rout), FormsModule ],
   declarations: [ AppComponent, ConnexionComponent, BoiteideeComponent ],
   bootstrap:    [ AppComponent ],
   providers: [AuthService]
