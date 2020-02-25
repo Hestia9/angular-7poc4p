@@ -21,20 +21,23 @@ export class ConnexionComponent implements OnInit {
     
   ) { }
   ngOnInit(){
-    this.initForm;
+    this.formConnexion = this.formBuilder.group({
+      login: ''
+    });
   }
-
+/*
   initForm(){
     this.formConnexion = this.formBuilder.group({
       login: '',
     });
-  }
+  }*/
 
   submitConnexionForm(){
-    const formValue = this.formConnexion.value;
+    /*const formValue = this.formConnexion.value;
     console.log(formValue['login']);
     this.user = new User(formValue['login']);
-    this.authService.auth(this.user);
-
+    this.authService.auth(this.user);*/
+    this.authService.auth(this.formConnexion.get('login').value);
+    this.router.navigate(['/boite']);
   }
 }
