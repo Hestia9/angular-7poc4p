@@ -1,2 +1,47 @@
 <h1>Bonjour {{ user?.login }}</h1>
+<div class="row justify-content-center">
+  <div class="col-md-5 card text-center">
+    <form [formGroup]="formIdee">
+      <div class="form-group">
+        <label >Pseudo</label><br>
+        <label formControlName="nom"> {{user?.login}} </label>
+      </div>
+      <div class="form-group">
+              <label for="textarea">Vueillez entrer votre idée :</label>
+              <textarea id="textarea" formControlName="libelle" class="form-control" rows="4"></textarea>
+              <small class="form-text text-muted">Vous pouvez agrandir la fenêtre</small>
+      </div>
+      <button type="submit" (click)="addIdee()" class="btn btn-primary btn-lg">Ajouter</button>
+      <button class="btn btn-danger btn-lg" (click)="returnLogin()">Abandonner</button>
+    </form>
+  </div>
+</div>
 
+<div class="row justify-content-center">
+<ng-container  *ngFor="let Idee of ideeU">
+  <div class="card border-primary mb-3" style="max-width: 18rem;">
+    <div class="card-header">
+      {{Idee.pseudo}}    
+    </div>
+    <div class="card-body text-primary">
+      <p class="card-text">{{Idee.libelles}}</p>
+    </div>
+    <div class="card-footer text-muted">
+    <p > {{Idee.like}} </p>
+      <button class="btn btn-primary" (click)="like(Idee)"> + </button>
+
+      <p> {{Idee.dislike}} </p>
+      <button class="btn btn-danger "(click)="dislike(Idee)"> - </button>
+    </div>
+  </div>
+</ng-container>
+</div>
+
+<div class="row d-flex justify-content-center">
+  <div class="card border-primary mb-3" style="max-width: 18rem;">
+    <div class="card-header">login</div>
+    <div class="card-body text-primary">
+      <p class="card-text">Mon idéefffrrr</p>
+    </div>
+  </div>
+</div>
